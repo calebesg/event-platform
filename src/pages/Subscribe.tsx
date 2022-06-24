@@ -36,11 +36,11 @@ export function Subscribe() {
 
   return (
     <div className="bg-pattern bg-cover bg-no-repeat min-h-screen flex flex-col items-center">
-      <div className="max-w-[1100px] w-full flex items-center justify-between mt-20">
-        <div className="max-w-[640px]">
+      <div className="max-w-[1100px] w-full flex flex-col gap-8 lg:flex-row items-center justify-between mt-20">
+        <div className="max-w-[640px] flex flex-col items-center lg:items-start px-8 lg:px-0">
           <Logo />
 
-          <h1 className="mt-8 text-[2.5rem] leading-tight">
+          <h1 className="mt-8 text-center px-1 lg:px-0 text-[1.875rem] lg:text-left lg:text-[2.5rem] leading-tight">
             Construa uma{' '}
             <strong className="text-blue-500 font-medium">
               aplicação completa
@@ -48,14 +48,14 @@ export function Subscribe() {
             , do zero, com{' '}
             <strong className="text-blue-500 font-medium">React JS</strong>
           </h1>
-          <p className="mt-4 text-gray-200 leading-relaxed">
+          <p className="mt-6 lg:mt-4 text-sm lg:text-base text-center lg:text-left text-gray-200 leading-relaxed">
             Em apenas uma semana você vai dominar na prática uma das tecnologias
             mais utilizadas e com alta demanda para acessar as melhores
             oportunidades do mercado.
           </p>
         </div>
 
-        <div className="p-8 bg-gray-700 border border-gray-500 rounded">
+        <div className="p-8 w-full lg:w-auto bg-gray-700 border border-gray-500 rounded">
           <strong className="text-2xl mb-6 block">
             Inscreva-se gratuitamente
           </strong>
@@ -87,7 +87,11 @@ export function Subscribe() {
         </div>
       </div>
 
-      <img src="/src/assets/mockup.png" className="mt-10" alt="Mockup" />
+      <img
+        src="/src/assets/mockup.png"
+        className="px-2 lg:mt-10"
+        alt="Mockup"
+      />
 
       <Footer />
     </div>
