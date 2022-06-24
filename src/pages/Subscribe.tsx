@@ -38,7 +38,9 @@ export function Subscribe() {
     <div className="bg-pattern bg-cover bg-no-repeat min-h-screen flex flex-col items-center">
       <div className="max-w-[1100px] w-full flex flex-col gap-8 lg:flex-row items-center justify-between mt-20">
         <div className="max-w-[640px] flex flex-col items-center lg:items-start px-8 lg:px-0">
-          <Logo />
+          <div className="w-[237px]">
+            <Logo />
+          </div>
 
           <h1 className="mt-8 text-center px-1 lg:px-0 text-[1.875rem] lg:text-left lg:text-[2.5rem] leading-tight">
             Construa uma{' '}
