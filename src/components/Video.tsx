@@ -9,6 +9,7 @@ import {
 } from 'phosphor-react';
 
 import '@vime/core/themes/default.css';
+import { Footer } from './Footer';
 
 const GET_LESSONS_BY_SLUG_QUERY = gql`
   query GetLessonBySlug($slug: String) {
@@ -71,7 +72,7 @@ export function Video(props: VideoProps) {
         </div>
       </div>
 
-      <div className="p-8 max-w-[1100px] mx-auto">
+      <div className="p-8 pb-0 max-w-[1100px] mx-auto">
         <div className="flex items-start gap-16">
           <div className="flex-1">
             <h1 className="text-2xl font-bold">{data.lesson.title}</h1>
@@ -114,7 +115,7 @@ export function Video(props: VideoProps) {
           </div>
         </div>
 
-        <div className="gap-8 mt-20 grid grid-cols-2">
+        <div className="gap-8 mt-20 grid grid-cols-2 mb-16">
           <a
             href="/"
             className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
@@ -154,6 +155,8 @@ export function Video(props: VideoProps) {
           </a>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
