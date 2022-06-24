@@ -1,6 +1,38 @@
+import { gql, useMutation } from '@apollo/client';
+import { FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Logo } from '../components/Logo';
 
+const CREATE_SUBSCRIBE_MUTATION = gql`
+  mutation CreateSubscriber($name: String!, $email: String!) {
+    createSubscriber(data: { name: $name, email: $email }) {
+      id
+    }
+  }
+`;
+
 export function Subscribe() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const [createSubscriber, { loading }] = useMutation(
+    CREATE_SUBSCRIBE_MUTATION
+  );
+  const navigate = useNavigate();
+
+  const handleSubmit = async function (event: FormEvent) {
+    event.preventDefault();
+
+    await createSubscriber({
+      variables: {
+        name,
+        email,
+      },
+    });
+
+    navigate('/event');
+  };
+
   return (
     <div className="bg-pattern bg-cover bg-no-repeat min-h-screen flex flex-col items-center">
       <div className="max-w-[1100px] w-full flex items-center justify-between mt-20">
@@ -27,20 +59,25 @@ export function Subscribe() {
             Inscreva-se gratuitamente
           </strong>
 
-          <form className="w-full flex flex-col gap-2">
+          <form onSubmit={handleSubmit} className="w-full flex flex-col gap-2">
             <input
               type="text"
               className="bg-gray-900 rounded px-5 h-14"
               placeholder="Seu nome completo"
+              value={name}
+              onChange={event => setName(event.target.value)}
             />
             <input
               type="email"
               className="bg-gray-900 rounded px-5 h-14"
               placeholder="Digite seu e-mail"
+              value={email}
+              onChange={event => setEmail(event.target.value)}
             />
 
             <button
-              className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors"
+              disabled={loading}
+              className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors disabled:opacity-60"
               type="submit"
             >
               Garantir minha vaga
