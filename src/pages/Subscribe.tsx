@@ -4,6 +4,8 @@ import { Footer } from '../components/Footer';
 import { Logo } from '../components/Logo';
 import { useCreateSubscriberMutation } from '../graphql/generated';
 
+import mockup from '../assets/mockup.png';
+
 export function Subscribe() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -79,11 +81,7 @@ export function Subscribe() {
         </div>
       </div>
 
-      <img
-        src="/src/assets/mockup.png"
-        className="px-2 lg:mt-10"
-        alt="Mockup"
-      />
+      <img src={mockup} className="px-2 lg:mt-10" alt="Mockup" />
 
       <Footer />
     </div>
